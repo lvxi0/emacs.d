@@ -17,6 +17,7 @@
 		       js2-mode
 		       nodejs-repl
 		       popwin
+		       reveal-in-osx-finder
                        ) "Default packages")
 
 (setq package-selected-packages lvxi/packages)

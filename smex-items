@@ -1,19 +1,19 @@
 
 ;; ----- smex-history -----
 (
- counsel-git
+ js2-mode
+ byte-recompile-directory
  eval-buffer
+ counsel-git
  org-mode
  global-auto-revert-mode
  info
- find-function-on-key
- find-variable
 )
 
 ;; ----- smex-data -----
 (
  (customize-group . 1)
- (eval-buffer . 10)
+ (eval-buffer . 12)
  (smartparens-mode . 2)
  (nodejs-repl . 4)
  (nodejs-repl-send-buffer . 1)
@@ -23,5 +23,7 @@
  (info . 1)
  (org-mode . 2)
  (global-auto-revert-mode . 1)
- (counsel-git . 1)
+ (counsel-git . 2)
+ (byte-recompile-directory . 2)
+ (js2-mode . 1)
 )
