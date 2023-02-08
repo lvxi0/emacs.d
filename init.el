@@ -2,6 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'init-packages)
+(require 'init-ui)
 
 (global-auto-revert-mode t)
 
@@ -24,8 +25,7 @@
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
 (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
 
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+
 
 (setq auto-save-default nil)
 (require 'org)
@@ -49,7 +49,6 @@
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
-(global-hl-line-mode t)
 
 
 

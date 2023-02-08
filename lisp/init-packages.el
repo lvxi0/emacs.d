@@ -1,10 +1,10 @@
-(when (>= emacs-major-version 24)
+ (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
   )
 
-(require 'cl)
+(require 'cl-lib)
 
 ;; add whatever packages you want here
 (defvar lvxi/packages '(
@@ -22,9 +22,9 @@
 (setq package-selected-packages lvxi/packages)
 
 (defun lvxi/packages-installed-p ()
-  (loop for pkg in lvxi/packages
-       when (not (package-installed-p pkg)) do (return nil)
-       finally (return t)))
+  (cl-loop for pkg in lvxi/packages
+       when (not (package-installed-p pkg)) do (cl-return nil)
+       finally (cl-return t)))
 
 (unless (lvxi/packages-installed-p)
   (message "%s" "Refreshing package database...")

@@ -1,9 +1,9 @@
 
 ;; ----- smex-history -----
 (
+ eval-buffer
  global-auto-revert-mode
  org-mode
- eval-buffer
  info
  find-function-on-key
  find-variable
@@ -13,7 +13,7 @@
 ;; ----- smex-data -----
 (
  (customize-group . 1)
- (eval-buffer . 7)
+ (eval-buffer . 8)
  (smartparens-mode . 2)
  (nodejs-repl . 4)
  (nodejs-repl-send-buffer . 1)
