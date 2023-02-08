@@ -1,42 +1,19 @@
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  )
 
-(require 'cl)
+(add-to-list 'load-path "~/.emacs.d")
 
-;; add whatever packages you want here
-(defvar lvxi/packages '(
-			company
-			monokai-theme
-			hungry-delete
-			swiper
-			counsel
-			smartparens
-			) "Default packages")
+(require 'init-packages)
 
-(setq package-selected-packages lvxi/packages)
+(global-auto-revert-mode t)
 
-(defun lvxi/packages-installed-p ()
-  (loop for pkg in lvxi/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
+(defun open-my-init-file()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
 
-(unless (lvxi/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg lvxi/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
-
-(require 'smartparens-config)
-;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
-(smartparens-global-mode t)
+(global-set-key (kbd "<f2>") 'open-my-init-file)
 
 
-(ivy-mode)
-(setq ivy-use-virtual-buffers t)
+(setq ring-bell-function 'ignore)
+
 (setq enable-recursive-minibuffers t)
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
@@ -50,25 +27,21 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(defun open-my-init-file()
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-
-(global-set-key (kbd "<f2>") 'open-my-init-file) 
-
-(global-linum-mode t)
-(global-company-mode t)
-(setq-default cursor-type 'bar)
-(setq make-backup-files nil)
-
+(setq auto-save-default nil)
 (require 'org)
 (require 'org-tempo)
 (setq org-src-fontify-natively t)
+(setq org-agenda-files '("~/Work/org"))
+(global-set-key (kbd "C-c a") 'org-agenda)
+
+
 
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+;; C-c C-s to schedule items
+;; C-c C-d to set deadline of items
 
 (delete-selection-mode t)
 
@@ -78,7 +51,11 @@
 
 (global-hl-line-mode t)
 
-(load-theme 'monokai t)
+
+
+(global-set-key (kbd "C-h C-f") 'find-function)
+(global-set-key (kbd "C-h C-v") 'find-variable)
+(global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -89,7 +66,8 @@
  '(company-minimum-prefix-length 1)
  '(custom-safe-themes
    '("95b0bc7b8687101335ebbf770828b641f2befdcf6d3c192243a251ce72ab1692" default))
- '(package-selected-packages '(counsel swiper smex company monokai-theme hungry-delete)))
+ '(package-selected-packages
+   '(nodejs-repl js2-mode popwin counsel swiper smex company monokai-theme hungry-delete)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

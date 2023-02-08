@@ -1,18 +1,26 @@
 
 ;; ----- smex-history -----
 (
- smartparens-mode
+ global-auto-revert-mode
+ org-mode
  eval-buffer
- customize-group
- cd
- 5x5
- arp
- dbx
+ info
+ find-function-on-key
+ find-variable
+ find-function
 )
 
 ;; ----- smex-data -----
 (
  (customize-group . 1)
- (eval-buffer . 2)
+ (eval-buffer . 7)
  (smartparens-mode . 2)
+ (nodejs-repl . 4)
+ (nodejs-repl-send-buffer . 1)
+ (find-function . 1)
+ (find-variable . 1)
+ (find-function-on-key . 2)
+ (info . 1)
+ (org-mode . 1)
+ (global-auto-revert-mode . 1)
 )
